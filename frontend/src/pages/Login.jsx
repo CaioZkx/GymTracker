@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ky from "ky";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 const api = ky.create({
@@ -9,6 +10,7 @@ const api = ky.create({
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -17,7 +19,7 @@ export default function Login() {
       }).json();
 
       alert("Login feito!");
-    } catch (err) {
+    } catch {
       alert("Erro no login");
     }
   };
@@ -40,6 +42,13 @@ export default function Login() {
         />
 
         <button onClick={handleLogin}>Entrar</button>
+
+        <p className="link">
+          Não tem conta?{" "}
+          <span onClick={() => navigate("/register")}>
+            Criar conta
+          </span>
+        </p>
       </div>
     </div>
   );

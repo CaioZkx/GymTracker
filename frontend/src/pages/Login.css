@@ -52,3 +52,19 @@ button {
 button:hover {
   background: #2563eb;
 }
+
+.link {
+  margin-top: 15px;
+  color: #cbd5f5;
+  font-size: 14px;
+}
+
+.link span {
+  color: #3b82f6;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.link span:hover {
+  text-decoration: underline;
+}

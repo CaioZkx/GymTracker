@@ -1,44 +1,56 @@
 import { useState } from "react";
-import api from "../services/api";
+import ky from "ky";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
+
+const api = ky.create({
+  prefixUrl: "http://localhost:3000"
+});
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
+  const handleRegister = async () => {
     try {
-      const res = await api.post("register", {
-        json: { email, password },
-      }).json();
+      await api.post("register", {
+        json: { email, password }
+      });
 
-      alert(res.message || "Usuário criado!");
-    } catch (err) {
-      alert("Erro ao registrar");
+      alert("Conta criada!");
+      navigate("/");
+    } catch {
+      alert("Erro ao criar conta");
     }
-  }
+  };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="container">
+      <div className="box">
+        <h1>Criar Conta</h1>
 
-      <form onSubmit={handleSubmit}>
         <input
+          type="email"
           placeholder="Email"
-          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
           type="password"
           placeholder="Senha"
-          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Criar conta</button>
-      </form>
+        <button onClick={handleRegister}>Registrar</button>
+
+        <p className="link">
+          Já tem conta?{" "}
+          <span onClick={() => navigate("/")}>
+            Fazer login
+          </span>
+        </p>
+      </div>
     </div>
   );
 }
