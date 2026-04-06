@@ -14,7 +14,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      await api.post("login", {
+      await api.post("auth/login", {
         json: { email, password }
       }).json();
 
