@@ -18,6 +18,8 @@ export default function Login() {
         json: { email, password }
       }).json();
 
+      navigate("/dashboard");
+
       alert("Login feito!");
     } catch {
       alert("Erro no login");

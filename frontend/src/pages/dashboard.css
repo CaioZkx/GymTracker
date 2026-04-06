@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+}
+
+/* container geral */
+.dashboard {
+  color: white;
+}
+
+/* TOPO */
+.topbar {
+  background: #1e293b;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* bolinha perfil */
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #334155;
+}
+
+/* layout */
+.content {
+  display: flex;
+}
+
+/* MENU LATERAL */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
+  min-height: calc(100vh - 70px);
+}
+
+.menu-item {
+  padding: 20px;
+  border-bottom: 1px solid #334155;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #334155;
+}
+
+/* ÁREA PRINCIPAL */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* header treino */
+.treino-header {
+  background: #1e293b;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* grid dias */
+.dias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dia {
+  background: #1e293b;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
